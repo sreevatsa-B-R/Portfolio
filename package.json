@@ -16,6 +16,8 @@
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "nodemailer": "^7.0.2",
-    "patch-package": "^8.0.0"
+    "patch-package": "^8.0.0",
+    "path": "^0.12.7",
+     "path-to-regexp": "git+https://github.com/sreevatsa-B-R/Portfolio/tree/main/node_modules/path-to-regexp"
   }
 }
