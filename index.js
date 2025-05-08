@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
 require('dotenv').config(); // Load environment variables from .env file
-
+const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 8080; // Use PORT from .env or default to 8080
 app.use(cors()); // Enable CORS for all routes
@@ -39,6 +39,11 @@ app.post('/send-email', (req, res) => {
         console.log('Email sent successfully:', info.response);
         res.status(200).json({ message: 'Email sent successfully', info });
     });
+});
+
+app.use(express.static(path.join(__dirname, '/dist'))); // Serve static files from React app
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './dist/index.html')); // Serve index.html for all other routes
 });
 
 // Start the server
